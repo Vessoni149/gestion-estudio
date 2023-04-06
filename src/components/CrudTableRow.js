@@ -1,15 +1,22 @@
-
 export function CrudTableRow({ el, setDataToEdit, deleteData }) {
   const { fecha, showDate, ...rest } = el;
-
-  const fechaCell = showDate ? <td>{fecha}</td> : <td></td>;
+  const timeZoneOffset = new Date().getTimezoneOffset();
+  const date = new Date(fecha);
+  date.setTime(date.getTime() + timeZoneOffset * 60 * 1000);
+  
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const fechaCell = showDate ? <td>{date.toLocaleDateString('es-ES', options)}</td> : <td></td>;
+  const isMonday = date.getDay() === 1;
 
   const handleFechaChange = () => {
     deleteData(el.id);
   };
-  
+  const serverTimezoneOffset = new Date().getTimezoneOffset();
+  console.log(serverTimezoneOffset);
+
   return (
     <>
+      {isMonday && <tr><hr/></tr>}
       <tr>
         {fechaCell}
         <td>{rest.materia}</td>
@@ -21,7 +28,6 @@ export function CrudTableRow({ el, setDataToEdit, deleteData }) {
           <button onClick={() => setDataToEdit(el)}>Editar</button>
           <button onClick={handleFechaChange}>Eliminar</button>
         </td>
-      fecha === new Date(fecha).getDay()
       </tr>
     </>
   );
