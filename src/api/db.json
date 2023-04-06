@@ -1,0 +1,13 @@
+{
+  "estudios": [
+    {
+      "fecha": "2023-04-06",
+      "materia": "react",
+      "horasDedicadas": "3",
+      "rangoHorario": "AS",
+      "teoricoPractico": "teorico",
+      "observaciones": "",
+      "id": 1680787946968
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+.modal-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-form button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-form h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.modal-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-form input[type="text"],
+.modal-form input[type="number"],
+.modal-form select,
+.modal-form textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.modal-form input[type="submit"],
+.modal-form input[type="reset"] {
+  margin-top: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.modal-form input[type="submit"]:hover,
+.modal-form input[type="reset"]:hover {
+  background-color: #3e8e41;
+}
