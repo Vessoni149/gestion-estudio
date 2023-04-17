@@ -18,6 +18,18 @@ export const CrudApi = () => {
   const [openModal, setOpenModal] = useState(false);
   let api = helpHttp();
   let url = "http://localhost:5000/estudios";
+  //Para subir el JSON:
+//   Sí, es posible subir el archivo JSON y tu proyecto React a internet y hacer que funcionen juntos. Sin embargo, hay algunas cosas que debes tener en cuenta:
+
+// Necesitarás un servidor web para alojar tu archivo JSON y tu proyecto React. Hay muchas opciones disponibles, como servicios de alojamiento de sitios web como Netlify, Vercel o Heroku, o incluso puedes usar tu propio servidor.
+
+// Una vez que hayas subido tu archivo JSON a internet, deberás cambiar la ruta de acceso en tu código React para que apunte a la nueva ubicación del archivo. En lugar de la ruta relativa que usas actualmente, deberás usar la URL completa de tu archivo JSON en la web.
+
+// Es posible que debas ajustar las políticas CORS (Cross-Origin Resource Sharing) en el servidor web que aloja tu archivo JSON para permitir que tu proyecto React acceda a él.
+
+// Si tu archivo JSON contiene información confidencial o sensible, deberás tomar medidas adicionales para protegerlo, como la autenticación y el cifrado de extremo a extremo.
+
+// Una vez que hayas subido el archivo JSON y tu proyecto React a internet y hayas ajustado la ruta de acceso en tu código, deberías ser capaz de acceder a los datos del archivo JSON en tu proyecto React tal como lo haces actualmente con el archivo local.
 
   useEffect(() => {
     setLoading(true);
@@ -39,10 +51,10 @@ export const CrudApi = () => {
               horasMateria[el.materia] = parseInt(el.horasDedicadas);
             }
           });
-          console.log(res.length);
+          
           setHorasTotales(totalHoras);
           setHorasPorMateria(horasMateria);
-
+          
         } else {
           setDb(null);
           setError(res);
@@ -117,7 +129,7 @@ export const CrudApi = () => {
       return;
     }
   };
-  console.log(db)
+  
   return (
     <div>
       <h2>CRUD API</h2>

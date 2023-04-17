@@ -12,7 +12,7 @@ export function CrudTableRow({ el, setDataToEdit, deleteData }) {
     deleteData(el.id);
   };
   const serverTimezoneOffset = new Date().getTimezoneOffset();
-  console.log(serverTimezoneOffset);
+  
 
   return (
     <>

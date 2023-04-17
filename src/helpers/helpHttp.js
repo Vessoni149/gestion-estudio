@@ -24,7 +24,7 @@ export const helpHttp = () => {
     //En el caso de la peticion get, no usaremos body, pero como aca creamos uno para todas las peticiones, si ese body es falso o vacío, lo eliminamos para que no nos marque error.
     if (!options.body) delete options.body;
 
-    console.log(options);
+    // console.log(options);
 
     //si en 3 seg. no se recibe respuesta del server, se aborta  la peticion.
     setTimeout(() => controller.abort(), 5000);

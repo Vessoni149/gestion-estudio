@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import moment from 'moment';
+
 export function DatosEstudio({db, horasTotales, horasPorMateria}){
   const [promedioDiarioEstudio, setPromedioDiarioEstudio] = useState(0);
   const [promedioSemanal, setPromedioSemanal] = useState(0)
@@ -15,13 +15,12 @@ useEffect(() => {
       const fechaISO = new Date(el.fecha).toISOString();
       const [year, month, day] = fechaISO.substr(0,10).split('-');
       const fecha = `${year}/${month}/${day}`;
-      console.log(fecha)
       uniqueDates[fecha] = true;
       totalHoras += parseInt(el.horasDedicadas);
     });
-console.log(uniqueDates)
+// console.log(uniqueDates)
     const cantidadDiasEstudio = Object.keys(uniqueDates).length;
-    console.log(cantidadDiasEstudio)
+    // console.log(cantidadDiasEstudio)
     const promedio = totalHoras / cantidadDiasEstudio;
     setPromedioDiarioEstudio(promedio);
   }
@@ -48,12 +47,6 @@ useEffect(() => {
     setPromedioSemanal(promedio);
   }
 }, [db]);
-
-
-
-
-
-
 
 
 
@@ -104,9 +97,9 @@ console.log("cantidad de horas teoricas: " + horasTeoricas)
 	 {promedioDiarioEstudio > 0 && (
 	<div>
     {/* esta variable calcula el promedio de estudio de los 7 dias de la semana */}
-    <h3>Promedio diario de estudio:</h3>
+    <h3>Promedio diario de estudio segun dias cargados:</h3>
     <p>{promedioDiarioEstudio}</p>
-    <h3>Promedio semanal de estudio:</h3>
+    <h3>Promedio semanal de estudio (excluyendo sábados y domingos):</h3>
     <p>{promedioSemanal}</p>
 	</div>
 	)}
