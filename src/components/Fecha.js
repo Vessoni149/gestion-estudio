@@ -22,7 +22,7 @@ function GestionTiempo({ form, handleChange }) {
   const fechaTexto = `${dia}/${mes}/${anio}`;
 
   // Mostrar el resultado en la consola
-  console.log(`Fecha seleccionada: ${diaSemanaTexto} ${fechaTexto}`);
+ 
 
   return (
     <div style={{marginBottom:"10px"}}>

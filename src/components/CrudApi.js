@@ -17,7 +17,7 @@ export const CrudApi = () => {
   // const [horasPorMateria, setHorasPorMateria] = useState({});
   const [openModal, setOpenModal] = useState(false);
   let api = helpHttp();
-  let url = "https://vessoni149.github.io/json-db-gestion-destudio/";
+  let url = "http://localhost:5000/estudios";
 
 
   useEffect(() => {
