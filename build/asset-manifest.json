@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/gestion-estudio/build/static/css/main.239c0965.css",
-    "main.js": "/gestion-estudio/build/static/js/main.f8749e5a.js",
-    "static/js/787.df34e9e3.chunk.js": "/gestion-estudio/build/static/js/787.df34e9e3.chunk.js",
-    "static/media/clock.png": "/gestion-estudio/build/static/media/clock.fbb0363b2f48461d6cfc.png",
-    "index.html": "/gestion-estudio/build/index.html",
-    "main.239c0965.css.map": "/gestion-estudio/build/static/css/main.239c0965.css.map",
-    "main.f8749e5a.js.map": "/gestion-estudio/build/static/js/main.f8749e5a.js.map",
-    "787.df34e9e3.chunk.js.map": "/gestion-estudio/build/static/js/787.df34e9e3.chunk.js.map"
+    "main.css": "/gestion-estudio/static/css/main.239c0965.css",
+    "main.js": "/gestion-estudio/static/js/main.e3b398e7.js",
+    "static/js/787.df34e9e3.chunk.js": "/gestion-estudio/static/js/787.df34e9e3.chunk.js",
+    "static/media/clock.png": "/gestion-estudio/static/media/clock.fbb0363b2f48461d6cfc.png",
+    "index.html": "/gestion-estudio/index.html",
+    "main.239c0965.css.map": "/gestion-estudio/static/css/main.239c0965.css.map",
+    "main.e3b398e7.js.map": "/gestion-estudio/static/js/main.e3b398e7.js.map",
+    "787.df34e9e3.chunk.js.map": "/gestion-estudio/static/js/787.df34e9e3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.239c0965.css",
-    "static/js/main.f8749e5a.js"
+    "static/js/main.e3b398e7.js"
   ]
 }

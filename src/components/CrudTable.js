@@ -11,7 +11,8 @@ export const CrudTable = ({ data, setDataToEdit, deleteData, setOpenModal }) => 
   const [horasEstudiadasPorDia, setHorasEstudiadasPorDia] = useState({});
   const chartRef = useRef(null);
   const [monthString,setMonthString] = useState("");
-  const tableData = data
+  const tableData = null;
+  if(!!data){ tableData = data
     .filter(
       (el) => new Date(el.fecha).getMonth() === currentMonth // Filtrar filas por mes
     )
@@ -19,7 +20,8 @@ export const CrudTable = ({ data, setDataToEdit, deleteData, setOpenModal }) => 
       const showDate = prevDateRef.current !== el.fecha;
       prevDateRef.current = el.fecha;
       return { ...el, showDate };
-    });
+    });}else{console.log("zsda")}
+ 
 
 
   let promedioMensual = 0;
