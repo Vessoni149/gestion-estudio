@@ -13,8 +13,8 @@ export const CrudApi = () => {
   const [dataToEdit, setDataToEdit] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [horasTotales, setHorasTotales] = useState(0);
-  const [horasPorMateria, setHorasPorMateria] = useState({});
+  // const [horasTotales, setHorasTotales] = useState(0);
+  // const [horasPorMateria, setHorasPorMateria] = useState({});
   const [openModal, setOpenModal] = useState(false);
   let api = helpHttp();
   let url = "http://localhost:5000/estudios";
@@ -40,21 +40,6 @@ export const CrudApi = () => {
         if (!res.err) {
           setDb(res);
           setError(null);
-          let totalHoras = 0;
-          let horasMateria = {};
-          
-          res.forEach((el) => {
-            totalHoras += parseInt(el.horasDedicadas) ;
-            if (el.materia in horasMateria) {
-              horasMateria[el.materia] += parseInt(el.horasDedicadas);
-            } else {
-              horasMateria[el.materia] = parseInt(el.horasDedicadas);
-            }
-          });
-          
-          setHorasTotales(totalHoras);
-          setHorasPorMateria(horasMateria);
-          
         } else {
           setDb(null);
           setError(res);
@@ -129,17 +114,21 @@ export const CrudApi = () => {
       return;
     }
   };
+
   
   return (
-    <div>
-      <h2>CRUD API</h2>
+    <div style={{textAlign: "center"}}>
+      <div style={{width:"80%", margin:"auto"}}>
+      <h3 style={{fontFamily:"serif", marginBottom:"70px", marginTop:"30px",textShadow:"5px 5px 5px #000"}}>Carga tus sesiones de estudio para brindarte información útil sobre tu productividad.</h3>
+      </div>
       <article className="grid-1-2">
 
-<button onClick={()=>setOpenModal(true)}>Cargar info</button>
+<button
+style={{backgroundColor:"#2d2d2d", color:"#c0c0c0", borderRadius:"10px", width:"120px", height:"30px"}}
+onClick={()=>{setOpenModal(true); setDataToEdit(null)}}>Cargar info</button>
 {/* no es lo mismo poner openModal que !!openModal: El primero preguntaria si existe, el segundo y existe y es true */}
         {!!openModal && (
           <Modal>
-            
             <CrudForm
               createData={createData}
               updateData={updateData}
@@ -161,26 +150,26 @@ export const CrudApi = () => {
         )}
         
         
-        <hr></hr>
+        
         {db && (
           <CrudTable
             data={db}
             setDataToEdit={setDataToEdit}
             deleteData={deleteData}
+            setOpenModal={setOpenModal}
           />
         )}
 
 <div>
       {db ?
         <>
-          <h3>Resumen de Horas de Estudio</h3>
-          <DatosEstudio db={db} horasTotales={horasTotales} horasPorMateria={horasPorMateria} />
+        <hr />
+          <DatosEstudio db={db} />
         </>
         :
         null
       }
     </div>
-
       </article>
     </div>
   );

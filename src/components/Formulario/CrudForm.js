@@ -46,14 +46,20 @@ useEffect(() => {
   }
   const handleSubmit = (e)=>{
     e.preventDefault();
+    if (form.horasDedicadas !== "" && !Number.isInteger(parseFloat(form.horasDedicadas))) {
+      alert("Por favor, ingresa un número entero en el campo 'horasDedicadas'");
+      return;
+    }
     if(!form.fecha || !form.materia || !form.horasDedicadas || !form.rangoHorario || !form.teoricoPractico){
       alert("Datos incompletos");
       return;
     }
     if(form.id === null){
-      createData(form)
+      createData(form);
+      setOpenModal(false);
     }else{
-      updateData(form)
+      updateData(form);
+      setOpenModal(false);
     }
     setForm(initialForm);
   setDataToEdit(null);
@@ -67,50 +73,64 @@ useEffect(() => {
   return (  
     <div className='modal-form'>
       <button onClick={()=>setOpenModal(false)}>X</button>
-      <h3>{dataToEdit? "Editar" : "Agregar"}</h3>
+      <h3 className='tituloModal'>{dataToEdit? "Editar" : "Agregar"}</h3>
       <form onSubmit={handleSubmit}>
 
       <GestionTiempo form={form} handleChange={handleChange}></GestionTiempo>
         
-
+        <label className='label' htmlFor='materia'>Materia:</label>
         <input type="text" 
+        id="materia"
         name="materia" 
-        placeholder='Materia' 
+        placeholder='Cualquier área de estudio' 
         onChange={handleChange} 
         value={form.materia}></input>
 
+        <label className='label' htmlFor='horasDedicadas'>Horas estudiadas:</label>
         <input type="number" 
+        id="horasDedicadas"
         name="horasDedicadas" 
-        placeholder='Horas dedicadas' 
+        placeholder='Ej: 6' 
         onChange={handleChange} 
-        value={form.horasDedicadas}></input>
+        value={form.horasDedicadas}
+        inputMode="numeric"></input>
 
+        <label className='label' htmlFor='rangoHorario'>Rango horario:</label>
         <input type="text" 
+        id="rangoHorario"
         name="rangoHorario" 
-        placeholder='Rango de horarios' 
+        placeholder='Ej: 7:00 a 12:00' 
         onChange={handleChange} 
         value={form.rangoHorario}></input>
 
-<label htmlFor="opciones">Elige una opción:</label>
-<select name="teoricoPractico" id="opciones" onChange={handleChange} value={form.teoricoPractico || ""}>
-  <option value="">--------</option>
-  <option value="teorico">Teorico</option>
-  <option value="practico">Practico</option>
-</select>
+        <label className='label' htmlFor="opciones">Elige una opción:</label>
+        <select name="teoricoPractico" id="opciones" onChange={handleChange} value={form.teoricoPractico || ""}>
+          <option value="">--------</option>
+          <option value="teorico">Teorico</option>
+          <option value="practico">Practico</option>
+        </select>
 
-        <input type="text" 
-        name="observaciones" 
-        placeholder='Observaciones' 
-        onChange={handleChange} 
-        value={form.observaciones}></input>
+        <label className='label' htmlFor="observaciones">Observaciones:</label>
+        <textarea
+          id="observaciones"
+          name="observaciones"
+          placeholder=""
+          onChange={handleChange}
+          value={form.observaciones}
+          style={{ overflow: "auto", resize: "vertical", height: "100px" }}
+        ></textarea>
+        <div className='buttons-container'>
+          <input 
+          type='submit' 
+          value="Enviar"
+          ></input>
 
-        <input type='submit' 
-        value="Enviar"></input>
-
-        <input type='reset' 
-        value="Limpiar" 
-        onClick={handleReset}></input>
+          <input type='reset' 
+          value="Limpiar" 
+          onClick={handleReset}></input>
+        </div>
       </form>
+      
     </div>
   )
 }

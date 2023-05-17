@@ -25,14 +25,16 @@ function GestionTiempo({ form, handleChange }) {
   console.log(`Fecha seleccionada: ${diaSemanaTexto} ${fechaTexto}`);
 
   return (
-    <div>
-      <label htmlFor="fecha">Fecha:</label>
+    <div style={{marginBottom:"10px"}}>
+      <label className="label" htmlFor="fecha">Fecha:</label>
       <input
+        id="fecha"
         type="date"
         name="fecha"
         placeholder="Fecha"
         onChange={handleChange}
         value={form.fecha}
+        style={{marginLeft:"20px"}}
       />
     </div>
   );

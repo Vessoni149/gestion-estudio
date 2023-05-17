@@ -1,7 +1,11 @@
 html{
   box-sizing: border-box;
+  padding: 0;
+  margin:0;
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: serif;
+  background-color: #222222cb;
+  color:#c0c0c0;
 }
 
 *after,
@@ -10,7 +14,7 @@ box-sizing: inherit;
 }
 
 input[type="text"]{
-border: thin solid #dedede;
+border: thin solid #feee;
 border-radius: 0.25rem;
 padding: 0.75rem;
 margin-bottom: 1rem;
@@ -42,8 +46,8 @@ vertical-align: middle;
 cursor: pointer;
 }
 
-form{
-  margin-bottom: 1rem;
+.slick-track{
+  width:100% !important;
 }
 
 hr{
@@ -63,11 +67,3 @@ td{
   border-bottom: thin solid #dedede;
 }
 
-/* @media screen and (min-width: 1024px){
-  .grid-1-2{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: start;
-    gap: 2rem; 
-  }
-} */
